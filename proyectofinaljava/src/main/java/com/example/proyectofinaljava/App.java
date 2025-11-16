@@ -4,7 +4,10 @@ import javax.swing.JOptionPane;
 
 public class App {
     public static void main(String[] args) {
-        int posj_y, posj_x, posf_y, posf_x, posi_x, posi_y, i, j;
+        int posj_y=1;
+        int posj_x=1;
+
+        int posf_y=1, posf_x=14, posi_x, posi_y, i, j;
 
         int mapa1[][] = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -43,6 +46,7 @@ public class App {
 
         };
         showMap(mapa1);
+
     }
 
 
@@ -58,6 +62,7 @@ public class App {
         JOptionPane.showMessageDialog(null, mapa);
 
     }
+    
 
      public static void move_left(int posj_y, int posj_x, int posf_y, int posf_x, int map[][]) {
 
@@ -66,8 +71,10 @@ public class App {
             map[posj_x][posj_y] = 0;
             map[posj_x-1][posj_y] = 9;
             posj_y -= 1;
+
             
             win(posj_y, posj_x, posf_y, posf_x, map);
+
         
         } else {
             JOptionPane.showMessageDialog(null, "no se puede es un muro intente otra vez");
