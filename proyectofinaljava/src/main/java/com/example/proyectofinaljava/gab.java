@@ -22,20 +22,20 @@ public class gab {
         {1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1},
         {1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
         {1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1},
-        {1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+        {1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
         {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
         {1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1},
         {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1},
-        {1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1}
     };
 
     // Posición inicial del jugador
     static int jugadorFila = 1;
     static int jugadorCol = 1;
     static int MetaFila = 14;
-    static int MetaCol = 1;
+    static int MetaCol = 13;
     static boolean jugando = true;
     public static void main(String[] args) {
         // Colocamos el jugador en el mapa
@@ -126,15 +126,13 @@ public class gab {
     }
 
     public static void mover(int move, boolean eje) {
-        int nuevafila = 0;
-        int nuevacolumna = 0;
+        int nuevafila = jugadorFila;
+        int nuevacolumna = jugadorCol;
 
         if (eje) {
-            nuevafila = jugadorFila + move;
-            nuevacolumna = jugadorCol;
+            nuevafila += move;
         } else {
-            nuevafila = jugadorFila;
-            nuevacolumna = jugadorCol + move;
+            nuevacolumna += move;
         }
         boolean puedeMover = validarMovimiento(nuevafila, nuevacolumna, mapa);
         if (puedeMover) {
