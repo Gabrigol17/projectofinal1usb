@@ -36,12 +36,11 @@ public class gab {
     static int jugadorCol = 1;
     static int MetaFila = 14;
     static int MetaCol = 1;
-
+    static boolean jugando = true;
     public static void main(String[] args) {
         // Colocamos el jugador en el mapa
         mapa[jugadorFila][jugadorCol] = 9;
-
-        boolean jugando = true;
+        
         while (jugando) {
             String mapatext = mostrarMapa();
             String movimiento = JOptionPane.showInputDialog(mapatext+ "\nCONTROLES:\n" +
@@ -55,15 +54,19 @@ public class gab {
             switch (opcion) {
                 case "w":
                     mover(-1, true);
+
                     break;
                 case "s":
                     mover(1, true);
+
                     break;
                 case "a":
                     mover(-1, false);
+
                     break;
                 case "d":
                     mover(1, false);
+
                     break;
                 case "e":
                     JOptionPane.showMessageDialog(null, "Saliendo del juego.");
@@ -125,7 +128,8 @@ public class gab {
     public static void mover(int move, boolean eje) {
         int nuevafila = 0;
         int nuevacolumna = 0;
-        if (eje == true) {
+
+        if (eje) {
             nuevafila = jugadorFila + move;
             nuevacolumna = jugadorCol;
         } else {
@@ -133,24 +137,21 @@ public class gab {
             nuevacolumna = jugadorCol + move;
         }
         boolean puedeMover = validarMovimiento(nuevafila, nuevacolumna, mapa);
-        if (puedeMover == true) {
+        if (puedeMover) {
             // Actualizar posición del jugador en el mapa
             mapa[jugadorFila][jugadorCol] = 0; // Dejar camino
             mapa[nuevafila][nuevacolumna] = 9; // Nueva posición del jugador
             // Actualizar coordenadas del jugador
-
+            
             jugadorFila = nuevafila;
             jugadorCol = nuevacolumna;
-
-        }
-        if (puedeMover == false) {
+            if ((MetaCol == jugadorCol && MetaFila == jugadorFila)){
+                JOptionPane.showMessageDialog(null, "You won");
+                jugando = false;
+            }
+                 
+        } else {
             JOptionPane.showMessageDialog(null, "Movimiento no válido. Hay un muro o estás fuera de los límites.");
-        }
-    }
-
-    public static void win() {
-        if (MetaCol == jugadorCol && MetaFila == jugadorFila) {
-            JOptionPane.showMessageDialog(null, "You won");
         }
     }
 }
