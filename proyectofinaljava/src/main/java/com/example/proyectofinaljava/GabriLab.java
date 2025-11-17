@@ -4,11 +4,21 @@ import javax.swing.JOptionPane;
 public class GabriLab {
     // Mapa (1 = muro, 0 = camino)
     static int mapa[][] = {
-            {1,1,1,1,1},
-            {1,0,0,0,1},
-            {1,0,1,0,1},
-            {1,0,0,0,1},
-            {1,1,1,1,1}
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,0,0,0,1,0,0,0,0,0,1,0,1,0,1},
+            {1,1,1,0,1,0,1,1,1,0,1,0,1,0,1},
+            {1,0,0,0,0,0,0,0,1,0,0,0,1,0,1},
+            {1,0,1,1,1,1,1,0,1,1,1,1,1,0,1},
+            {1,0,1,0,0,0,1,0,0,0,0,0,1,0,1},
+            {1,0,1,0,1,0,1,1,1,1,1,0,1,0,1},
+            {1,0,0,0,1,0,0,0,0,1,0,0,1,0,1},
+            {1,1,1,0,1,1,1,1,0,1,1,1,1,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,1,1,1,1,1,1,1,1,1,1,1,0,1},
+            {1,0,1,0,0,0,0,0,0,0,0,0,1,0,1},
+            {1,0,1,0,1,1,1,1,1,1,1,0,1,0,1},
+            {1,0,0,0,1,0,0,0,0,0,1,0,0,0,1},
+            {1,3,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
     // Posición inicial del jugador
@@ -57,8 +67,8 @@ public class GabriLab {
     public static String mostrarMapa() {
         String texto = "";
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
                 texto += mapa[i][j] + " ";
             }
             texto += "\n";
@@ -69,8 +79,8 @@ public class GabriLab {
         // Verificar límites del mapa
         if (nuevafila < 0) return false;
         if (nuevacolumna < 0) return false;
-        if (nuevafila  > 4) return false;
-        if (nuevacolumna > 4) return false;
+        if (nuevafila  > 14) return false;
+        if (nuevacolumna > 14) return false;
 
         // Verificar si la celda es un muro o obstaculo
         if (mapa[nuevafila][nuevacolumna] == 1) return false;
