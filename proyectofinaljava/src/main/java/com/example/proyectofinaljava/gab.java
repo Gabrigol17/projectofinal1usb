@@ -86,9 +86,9 @@ public class gab {
                     texto += "      ";
 
                 } else if (mapa[i][j] == 9) {
-                    texto += "    9";
+                    texto += "    🚶";
                 } else if (mapa[i][j] == 3) {
-                    texto += "    w";
+                    texto += "    ⭐";
                 } else {
                     texto += "     /";
 
@@ -146,13 +146,6 @@ public class gab {
         if (puedeMover == false) {
             JOptionPane.showMessageDialog(null, "Movimiento no válido. Hay un muro o estás fuera de los límites.");
         }
-    }
-
-    public static void movimento_INVALIDO(boolean puedeMover) {
-        if (puedeMover == false) {
-            JOptionPane.showMessageDialog(null, "Movimiento no válido. Hay un muro o estás fuera de los límites.");
-        }
-
     }
 
     public static void win() {
