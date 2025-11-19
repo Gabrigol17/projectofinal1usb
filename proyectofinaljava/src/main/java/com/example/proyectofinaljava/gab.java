@@ -144,7 +144,7 @@ public class gab {
             jugadorFila = nuevafila;
             jugadorCol = nuevacolumna;
             if ((MetaCol == jugadorCol && MetaFila == jugadorFila)){
-                JOptionPane.showMessageDialog(null, "You won");
+                JOptionPane.showMessageDialog(null, "Has llegado a la meta. ¡Felicidades!");
                 jugando = false;
             }
                  
