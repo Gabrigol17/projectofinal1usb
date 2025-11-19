@@ -10,7 +10,7 @@ import javax.swing.*;
  *
  * @author sebas
  */
-public class gab {
+public class Laberinto {
     // Mapa (1 = muro, 0 = camino)
 
     static int mapa[][] = {
