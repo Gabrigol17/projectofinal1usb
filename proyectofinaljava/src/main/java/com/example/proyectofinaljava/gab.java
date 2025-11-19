@@ -79,7 +79,7 @@ public class gab {
         }
     }
 
-    // Función para imprimir el mapa en JOptionPane
+    // Función para imprimir el mapa con JOptionPane
     public static String mostrarMapa() {
         String texto = "";
 
